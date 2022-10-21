@@ -1,0 +1,20 @@
+const payyourDues = ({amount, type, email}) => {
+				alert('klxajkhasjk');
+				let handler = PaystackPop.setup({
+					key: 'pk_test_cad279c5049ebec698669f5d2d765aee8a95630b', //replace with your public key
+					email: email,
+					amount: amount * 100,
+					currency: 'NGN',
+					ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+					onClose: function() {
+						window.location = "../student/make_payment?transaction=call";
+						alert('Transaction Cancelled');
+					},
+					callback: function(response) {
+						let message = 'Payment complete! Reference: ' + response.reference;
+						alert(message);
+						window.location = `${type}_verify?reference=` + response.reference;
+					}
+				});
+				handler.openIframe();
+			}
