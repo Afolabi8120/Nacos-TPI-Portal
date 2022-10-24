@@ -154,9 +154,9 @@
 			return true;
 		}
 
-		public function updatePassword($matricno,$password){
-			$stmt = $this->pdo->prepare("UPDATE tblstudent SET password=:password WHERE matricno=:matricno");
-			$stmt->bindParam(":matricno", $matricno, PDO::PARAM_STR);
+		public function updatePassword($id,$password){
+			$stmt = $this->pdo->prepare("UPDATE tblstudent SET password=:password WHERE id=:id");
+			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 			$stmt->bindParam(":password", $password, PDO::PARAM_STR);
 			$stmt->execute();
 

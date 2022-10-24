@@ -108,30 +108,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Change Password Card Ends Here -->
-
-                            <!-- Change Picture Card Starts Here -->
-                            <!-- <div class="col-md-6">
-                                <div class="card card-with-nav">
-                                    <div class="card-header mt-3">
-                                        Change Profile Picture
-                                    </div>
-                                    <div class="card-body">
-                                        <form method="POST" enctype="multipart/form-data">
-                                            <div class="form-group">     
-                                                <img class="img-profile rounded-circle" src="../student_img/<?php echo $getStudent->picture; ?>" width="150px" height="150px">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Select Picture</label>
-                                                <div class="input-group">                              
-                                                    <input type="file" name="stu_image" accept=".jpg, .png, .jpeg" onchange="this.form.submit();" class="form-control" id="image_id">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- Change Picture Card Ends Here -->
                         </div>
                     </div>
                 </div>

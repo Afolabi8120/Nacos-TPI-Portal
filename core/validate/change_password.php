@@ -43,12 +43,15 @@
 
             $student = $stu->getStudentData($_SESSION['matricno']);
             $getpassword = $student->password; // fetched password
-
+            #var_dump($student->id);exit();
             if(password_verify($oldpassword, $getpassword)){
                 // Hashing the password provided by the user word
                 $newpassword = password_hash($password, PASSWORD_DEFAULT);
-                $stu->updatePassword($_SESSION['matricno'], $newpassword);
-                $_SESSION['SuccessMessage'] = "Password Has Been Changed Successfully";
+                if($stu->updatePassword($student->id, $newpassword) === true){
+                    $_SESSION['SuccessMessage'] = "Password Has Been Changed Successfully";
+                }else{
+                    $_SESSION['ErrorMessage'] = "Failed to Change Password";   
+                }
             }
             else{
                 $_SESSION['ErrorMessage'] = "Old Password Provided is Invalid";

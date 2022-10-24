@@ -85,13 +85,13 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="username">Matric/Form No</label>
-                                                        <input value="<?php echo $getStudent->matricno; ?>" name="matricno" type="text" class="form-control" placeholder="Matric/Form No">
+                                                        <input value="<?php echo $getStudent->matricno; ?>" name="matricno" type="text" class="form-control" placeholder="Matric/Form No" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label>Full Name</label>
-                                                        <input  value="<?php echo $getStudent->fullname; ?>" type="text" class="form-control" placeholder="Full Name" name="fullname" >
+                                                        <input  value="<?php echo $getStudent->fullname; ?>" type="text" class="form-control" placeholder="Full Name" name="fullname" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
