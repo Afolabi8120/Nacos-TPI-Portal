@@ -34,8 +34,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Receipt</title>
-	
+    <title>Receipt</title>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="../assets/img/icon.png" type="image/x-icon"/>
@@ -61,80 +61,90 @@
             }
         }
     </style>
-</style>
 </head>
 <body>
-	<div class="container">
+    <div class="container">
 
-        <div class="page-inner">	
-			<div class="page-category">
-				<div class="row">
+        <div class="page-inner">    
+            <div class="page-category" style="padding: 0;">
+                <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <div class="card py-5">
-                            <div class="card-title mb-2">
-                                <center>
-                                    <img src="../assets/img/poly.png" height="80px" width="80px" class="rounded-circle mb-4 mt-1">
-                                    <img src="../assets/img/icon.png" height="80px" width="80px" class="rounded-circle mb-4 mt-1">
-                                </center>
-                                <h1 class="text-center h1 weight-900 b text-dark">Department of Computer Science</h1>
-                                <h2 class="text-center h2 weight-900 b text-dark">NACOS, The Polytechnic Ibadan.</h2>
-                                <h6 class="text-center h6 text-dark">&nbsp; <i class="fas fa-globe"></i> https://nacostpi.com </h6>
+                        <div class="card py-0">
+                            <div class="card-title mt-3" align="center">
+                                <img src="../assets/img/poly.png" height="80px" width="80px" class="rounded-circle mb-4 mt-1">
+                                <img src="../assets/img/icon.png" height="80px" width="80px" class="rounded-circle mb-4 mt-1">
+                                <h1 class="text-center h3 weight-900 b text-dark">Department of Computer Science</h1>
+                                <h2 class="text-center h4 weight-900 b text-dark">NACOS, The Polytechnic Ibadan.</h2>
+                                <h6 class="text-center text-dark"> <i class="fas fa-globe"></i> &nbsp;https://nacostpi.com </h6>
                             </div>
                             <div class="card-body">
-                                <div class="col-md-12 ml-auto mr-auto">
+                                <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="text-left">
-                                                <h3 class="h2 b mb-0"><?php echo $getStudentReceiptInfo->fullname; ?></h3>
-                                                <p class="font-16 mb-0"><strong class="weight-600 ">Receipt No: </strong> <strong><?php echo $getStudentReceiptInfo->receipt_no; ?></strong></p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Matric No:</strong> <?php echo $getStudentReceiptInfo->matricno; ?></p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">NACOS ID:</strong> <?php echo $getStudentReceiptInfo->nacos_id; ?></p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Class:</strong> <?php echo $getStudentReceiptInfo->level; ?> (<?php echo $getStudentReceiptInfo->program; ?>)</p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Email:</strong> <?php echo $getStudentReceiptInfo->email; ?></p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Phone No:</strong> <?php echo $getStudentReceiptInfo->phone; ?></p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Session:</strong> 2022/2023</p>
-                                                <p class="font-16 mb-0"><strong class="weight-600">Date Paid:</strong> <?php echo $getStudentReceiptInfo->date_paid; ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- <div class="text-right">
-                                                <h3 class="h2 b mb-0">Receipt No.</h3>
-                                                <p class="font-16 mb-0"><strong class="weight-600 outline"></strong> jhsd576q35776</p>
-                                            </div> -->
-                                        </div>
-                                    </div>
-
-                                    <!-- Table -->
-                                    <div class="row">
-                                        <table class="table table-bordered mt-4">
+                                        <table class="table table-bordered" cellspacing="0" cellpadding="0">
                                             <thead class="text-dark">
                                                 <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Fee Description</th>
-                                                    <th scope="col">Amount Paid</th>
+                                                    <th colspan="4" class="text-center">Payment Receipt</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td scope="col"><strong>Matric No:</strong></td>
+                                                    <td scope="col"><strong><?php echo $getStudentReceiptInfo->matricno; ?></strong></td>
+                                                    <td scope="col "><strong>Fullname:</strong></td>
+                                                    <td scope="col"><strong><?php echo $getStudentReceiptInfo->fullname; ?></strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col "><strong>NACOS ID:</strong></td>
+                                                    <td scope="col"><?php echo $getStudentReceiptInfo->nacos_id; ?></td>
+                                                    <td scope="col"><strong>Level/Program:</strong></td>
+                                                    <td scope="col"><?php echo $getStudentReceiptInfo->level; ?> (<?php echo $getStudentReceiptInfo->program; ?>)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col "><strong>Email:</strong></td>
+                                                    <td scope="col"><?php echo $getStudentReceiptInfo->email; ?></td>
+                                                    <td scope="col"><strong>Phone No:</strong></td>
+                                                    <td scope="col"><?php echo $getStudentReceiptInfo->phone; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col "><strong>Session:</strong></td>
+                                                    <td scope="col">2022/2023</td>
+                                                    <td scope="col"><strong>Date Paid:</strong></td>
+                                                    <td scope="col"><?php echo $getStudentReceiptInfo->date_paid; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col "><strong>Receipt No:</strong></td>
+                                                    <td scope="col" colspan="3"><?php echo $getStudentReceiptInfo->receipt_no; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="col" colspan="4"></td>>
+                                                </tr>
+                                                <tr style="font-weight: bold;">
+                                                    <td scope="col">S/N</td>
+                                                    <td scope="col" colspan="2">Fee Description</td>
+                                                    <td scope="col">Amount Paid</td>
+                                                </tr>
+                                                <tr>
                                                     <td>1</td>
-                                                    <td>Payment for <strong>2022/2023 NACOS Due</strong></td>
+                                                    <td colspan="2">Payment for <strong>2022/2023 NACOS Due</strong></td>
                                                     <td>₦ 1000</td>
                                                 </tr>
                                                 <tr>
-                                                    <td rowspan="2">
-                                                        <?php echo $admin->generateQRCode($text); ?>
-                                                    </td>
-                                                    <td class="text-right"><strong>Sub Total:</strong></td>
-                                                    <td><strong>₦ 1000</strong></td>
+                                                    <td>2</td>
+                                                    <td colspan="2">Payment for <strong>2022/2023 NACOS ID Card</strong></td>
+                                                    <td>₦ 500</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-right"><h3><strong>Total:</strong></h3></td>
-                                                    <td><h3><strong>₦ 1000</strong></h3></td>
+                                                    <td></td>
+                                                    <td class="text-right h3" colspan="2"><strong>Total:</strong></td>
+                                                    <td><strong>₦ 1500</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>
 
-                                        <div style="display: inline-flex;" class="mt-5">
+                                        <?php echo $admin->generateQRCode($text); ?>
+
+                                        <div style="display: inline-flex; padding: 0;" class="mt-5">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <p class="font-16 mb-0 mt-3 text-center"><strong class="weight-600">_________________<br/>Student Signature.</strong></p>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -148,8 +158,8 @@
                                 </div>
                             </div>
 
-                            <div class="card-footer text-center">
-                                <h4 class="mb-1 text-right text-center b h4"><u>NOTE</u></h4>
+                            <div class="card-footer text-center m-3" style="padding: 0;">
+                                <h4 class="text-right text-center b h4 mt-2"><u>NOTE</u></h4>
                                 <div>
                                     <p>Please take this Printout to the <strong>Financial Secretary</strong> at the Department for <strong>Signatory and Stamp to authenticate your payment and validate this receipt.</strong></p>
                                 </div>
@@ -166,11 +176,11 @@
 
                         </div>
                     </div>
-				</div>
+                </div>
             </div>
-		</div>
+        </div>
 
-	</div>
+    </div>
   
 </body>
 </html>

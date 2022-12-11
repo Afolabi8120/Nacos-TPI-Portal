@@ -1,7 +1,7 @@
 <?php
 	include('database/config.php');
-    // include('classes/PHPMailer.php');
-    // include('classes/SMTP.php');
+    #include('classes/class.phpmailer.php');
+    #include('classes/class.smtp.php');
 	include('classes/Admin.php');
 	include('classes/Student.php');
 
@@ -43,7 +43,9 @@
         $getdate = "Good Morning";
     }else if($h >= 12 && $h <= 15){
         $getdate = "Good Afternoon";
-    }else {
+    }else if($h >= 16 && $h <= 23){
         $getdate = "Good Evening";
+    }else {
+        $getdate = "Good Morning";
     }
 ?>

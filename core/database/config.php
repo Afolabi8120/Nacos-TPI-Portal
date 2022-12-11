@@ -2,7 +2,7 @@
 	
 	$dsn = 'mysql:host=localhost; dbname=dpt_db';
 	$username = 'root';
-	$password = '';
+	$password = '(Afolabi8120)';
 
 	try{
 		$pdo = new PDO($dsn, $username, $password);

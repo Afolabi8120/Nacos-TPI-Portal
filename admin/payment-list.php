@@ -14,6 +14,8 @@
         header('location: ../index');
     }
 
+    echo 'nacostpi-'.uniqid().(floor(rand() * 10000000000));
+exit();
 ?>
 <!DOCTYPE html>
 <html lang="en">

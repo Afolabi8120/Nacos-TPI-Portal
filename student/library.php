@@ -77,88 +77,37 @@
                                     <div class="card-header mt-3">
                                     </div>
                                     <div class="card-body">
-                                        <form action="#" method="POST">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="text-center">
-                                                        <h1 class="h1 fw-bold">Coming Soon</h1>
-                                                    </div>
+                                        <?php if(!$getMaterial) { ?>
+                                            <div class="col-sm-12">
+                                                <div class="text-center">
+                                                    <h5 class="h5 fw-bold"><i class="fas fa-sad-cry fa-2x"></i> Not Available, Please Check Back Later.</h5>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        <?php } ?>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card card-with-nav">
-                                    <div class="card-header mt-3">
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="#" method="POST">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="text-center">
-                                                        <h1 class="h1 fw-bold">Coming Soon</h1>
+                                        <?php foreach ($getMaterial as $materials){ ?>
+                                            <div class="col-sm-3">
+                                                <div class="card">
+                                                    <div class="card-header mt-3 text-dark">
+                                                        <h5 class="text-center fw-bold small"><?php echo $materials->title; ?></h5>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card card-with-nav">
-                                    <div class="card-header mt-3">
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="#" method="POST">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="text-center">
-                                                        <h1 class="h1 fw-bold">Coming Soon</h1>
+                                                    <div class="card-body">
+                                                        <img src="../admin/admin_img/book-cover2.png" alt="Book Cover" height="150px" width="100px" class="card-img-top">
+                                                        <div class="text-center mt-3">
+                                                            <span class="text-center fw-bold mt-5"><?php echo $materials->name; ?></span><br>
+                                                            <span class="text-center mt-5 small fw-bold"><?php echo $materials->category; ?></span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="card-footer">
+                                                        <a href="../elibrary/<?php echo $materials->book_name; ?>" download="<?php echo $materials->title; ?>" class="form-control btn btn-lg btn-success">Download</a>
+                                                    </div> 
+                                                </div>  
                                             </div>
-                                        </form>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-						<!-- <?php if(!$getMaterial) { ?>
-                            <div class="col-sm-12">
-                                <div class="text-center">
-                                    <h5 class="h5 fw-bold"><i class="fas fa-sad-cry fa-2x"></i> Not Available, Please Check Back Later.</h5>
-                                </div>
-                            </div>
-                        <?php } ?> -->
-
-                        <!-- <?php foreach ($getMaterial as $materials){ ?>
-                            <div class="col-sm-3">
-                                <div class="card">
-                                    <div class="card-header mt-3 text-dark">
-                                        <h5 class="text-center fw-bold small"><?php echo $materials->title; ?></h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <img src="../admin/admin_img/book-cover2.png" alt="Book Cover" height="150px" width="100px" class="card-img-top">
-                                        <div class="text-center mt-3">
-                                            <span class="text-center fw-bold mt-5"><?php echo $materials->name; ?></span><br>
-                                            <span class="text-center mt-5 small fw-bold"><?php echo $materials->category; ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="../elibrary/<?php echo $materials->book_name; ?>" download="<?php echo $materials->title; ?>" class="form-control btn btn-lg btn-success">Download</a>
-                                    </div> 
-                                </div>  
-                            </div>
-                        <?php } ?> -->
+                        </div>	
 					</div>
 				</div>
 			</div>

@@ -79,6 +79,9 @@
                                             <ul class="nav nav-tabs nav-line nav-color-dark w-100 pl-3" role="tablist">
                                                 <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home" role="tab" aria-selected="true">All Registered Student(s)</a> </li>
                                             </ul>
+                                            <ul class="nav nav-tabs nav-line nav-color-dark w-100 pl-3" role="tab" aria-selected="true">
+                                                <a href="export" onclick="return confirm('Download All Student List?');" class="mt-2 mb-2 btn btn-md btn-success">Download List</a>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="card-body">

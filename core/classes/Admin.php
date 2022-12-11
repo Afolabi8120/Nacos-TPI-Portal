@@ -192,7 +192,7 @@
 
 		// get all excos
 		public function getAllExcos(){
-			$stmt = $this->pdo->prepare("SELECT * FROM tblexco ORDER BY post ASC");
+			$stmt = $this->pdo->prepare("SELECT * FROM tblexco ORDER BY id ASC");
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
@@ -319,6 +319,12 @@
 			$count = $stmt->rowCount();
 
 			return $count;
+		}
+
+		public function exportStudentList(){
+			$stmt = $this->pdo->prepare("SELECT * FROM tblstudent WHERE usertype = 'Student' ");
+			$stmt->execute();
+			return $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
 
 		public function getStudentCount($table,$column,$value,$column2,$value2){
@@ -693,25 +699,36 @@
 
 		function sendMail($to, $subject, $body){
 
-			$mail = new PHPMailer(true);
+			// $mail = new PHPMailer(true);
 
-            $mail->isSMTP();
-            $mail->SMTPAuth   = true;
-            $mail->Host       = 'nacostpi.com';
-            $mail->Username   = 'contact@nacostpi.com';
-            $mail->Password   = '(nacostpilive###)'; 
-            $mail->From = "contact@nacostpi.com";
-            $mail->FromName = "NACOS The Polytechnic Ibadan";
+   //          $mail->isSMTP();
+   //          $mail->SMTPAuth   = true;
+   //          $mail->Host       = 'nacostpi.com';
+   //          $mail->Username   = 'contact@nacostpi.com';
+   //          $mail->Password   = '(nacostpilive###)'; 
+   //          $mail->From = "contact@nacostpi.com";
+   //          $mail->FromName = "NACOS, The Polytechnic Ibadan";
 
-            $mail->AddAddress($to); 
-            $mail->AddCC("afolabi8120@gmail.com");
-            $mail->Subject = $subject;
-            $mail->Body    = $body;
-            $mail->AltBody = 'You requested for a password reset';
-            $mail->WordWrap = 100;
-            $mail->isHTML(true); 
-            //$mail->SMTPSecure = 'tls';
-            $mail->Port = 465; //587
+   //          $mail->AddAddress($to); 
+   //          $mail->AddCC("noreply@nacostpi.com");
+   //          $mail->Subject = $subject;
+   //          $mail->Body    = $body;
+   //          $mail->AltBody = 'You requested for a password reset';
+   //          $mail->WordWrap = 100;
+   //          $mail->isHTML(true); 
+   //          //$mail->SMTPSecure = 'tls';
+   //          $mail->Port = 587; //587 465
+
+			$email = new \SendGrid\Mail\Mail(); 
+            $email->setFrom("no-reply@nacostpi.com", "NACOS TPI");
+            $email->setSubject("Student Password Reset On NACOS TPI Portal");
+            $email->addTo($to);
+                // $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+            $email->addContent(
+                  "text/html", $body
+                );
+            $sendgrid = new \SendGrid('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');
+            $sendgrid->send($subject);
 
             if($mail->send()){
             	return true;
@@ -727,8 +744,8 @@
 
         	// $ecc stores error correction capability('L')
         	$ecc = 'L';
-        	$pixel_Size = 4;
-        	$frame_Size = 4;
+        	$pixel_Size = 3;
+        	$frame_Size = 3;
 
         	// Generate QR Code and Stores it in a directory given
         	QRcode::png($text, $file, $ecc, $pixel_Size, $frame_Size);
