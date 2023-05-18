@@ -39,6 +39,7 @@
 
 <!-- Atlantis JS -->
 <script src="../assets/js/atlantis.min.js"></script>
+<script src="../assets/js/html2canvas.js"></script>
 
 <script>
 	$(document).ready(function() {

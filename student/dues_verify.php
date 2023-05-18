@@ -20,7 +20,7 @@
       if($admin->check('tblpayment','email',$email) === true){
         header('location: logout');
       }else{
-        if($admin->savePayment($email,$ref,'1000','1') === true){
+        if($admin->savePayment($email,$ref,'1000','1','2022/2023') === true){
           echo "<script>alert('Payment Successful')</script>";
         }
           header('location: print-receipt');

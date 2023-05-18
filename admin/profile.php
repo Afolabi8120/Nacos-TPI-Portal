@@ -61,7 +61,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">Profile</a>
+								<a href="profile">Profile</a>
 							</li>
 						</ul>
 					</div>

@@ -63,7 +63,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">Manage User</a>
+								<a href="user_management">Manage User</a>
 							</li>
 						</ul>
 					</div>

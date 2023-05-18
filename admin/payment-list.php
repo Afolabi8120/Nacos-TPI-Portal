@@ -14,8 +14,6 @@
         header('location: ../index');
     }
 
-    echo 'nacostpi-'.uniqid().(floor(rand() * 10000000000));
-exit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +62,7 @@ exit();
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">All Payment</a>
+								<a href="payment-list">All Payment</a>
 							</li>
 						</ul>
 					</div>
@@ -108,7 +106,7 @@ exit();
                                                     <?php $i=1; foreach ($admin->fetchPaymentRecord() as $fetchpayment) { ?>
                                                     <tr>
                                                         <td class="text-bold-500"><?php echo $i++;?></td>
-                                                        <td class="text-bold-500">2022/2023 NACOS DUE</td>
+                                                        <td class="text-bold-500"><?php echo $fetchpayment->section; ?> NACOS DUE</td>
                                                         <td>             
                                                             <img class="img-profile rounded-circle" src="../student_img/<?php echo $fetchpayment->picture; ?>" width="40px" height="40px">
                                                         </td>

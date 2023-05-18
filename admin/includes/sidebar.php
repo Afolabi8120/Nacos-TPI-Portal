@@ -60,6 +60,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="manual-payment">
+                        <i class="fas fa-user"></i>
+                        <p>Manual Payment</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="library">
                         <i class="fas fa-book"></i>
                         <p>E Library</p>

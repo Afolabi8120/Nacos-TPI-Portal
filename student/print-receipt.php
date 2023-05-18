@@ -55,6 +55,9 @@
     <!-- CSS Files -->
     <?php require_once('../includes/css.php'); ?>
     <style type="text/css">
+        * {
+            margin: 0;
+        }
         @media print {
             .btn-print {
                 display:none !important;
@@ -107,7 +110,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td scope="col "><strong>Session:</strong></td>
-                                                    <td scope="col">2022/2023</td>
+                                                    <td scope="col"><?php echo "2022/2023"#$getStudentReceiptInfo->section; ?></td>
                                                     <td scope="col"><strong>Date Paid:</strong></td>
                                                     <td scope="col"><?php echo $getStudentReceiptInfo->date_paid; ?></td>
                                                 </tr>

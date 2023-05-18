@@ -93,8 +93,8 @@
         	return true;
         }
 
-		public function register($matricno,$fullname,$email,$phone,$gender,$program,$level,$password,$picture,$nacos_id,$usertype){
-			$stmt = $this->pdo->prepare("INSERT INTO tblstudent (matricno,fullname,email,phone,gender,program,level,password,status,picture,nacos_id,usertype) VALUES(:matricno,:fullname,:email,:phone,:gender,:program,:level,:password,'Active',:picture,:nacos_id,:usertype)");
+		public function register($matricno,$fullname,$email,$phone,$gender,$program,$level,$password,$picture,$nacos_id,$usertype,$section){
+			$stmt = $this->pdo->prepare("INSERT INTO tblstudent (matricno,fullname,email,phone,gender,program,level,password,status,picture,nacos_id,usertype,section) VALUES(:matricno,:fullname,:email,:phone,:gender,:program,:level,:password,'Active',:picture,:nacos_id,:usertype,:section)");
 			$stmt->bindParam(":matricno", $matricno, PDO::PARAM_STR);
 			$stmt->bindParam(":fullname", $fullname, PDO::PARAM_STR);
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
@@ -106,6 +106,19 @@
 			$stmt->bindParam(":picture", $picture, PDO::PARAM_STR);
 			$stmt->bindParam(":nacos_id", $nacos_id, PDO::PARAM_STR);
 			$stmt->bindParam(":usertype", $usertype, PDO::PARAM_STR);
+			$stmt->bindParam(":section", $section, PDO::PARAM_STR);
+			$stmt->execute();
+
+			return true;
+		}
+
+		public function manualPayment($email,$receipt_no,$amount_paid,$payment_status,$section){
+			$stmt = $this->pdo->prepare("INSERT INTO tblpayment (email,receipt_no,amount_paid,payment_status,section) VALUES(:email,:receipt_no,:amount_paid,:payment_status,:section)");
+			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
+			$stmt->bindParam(":receipt_no", $receipt_no, PDO::PARAM_STR);
+			$stmt->bindParam(":amount_paid", $amount_paid, PDO::PARAM_STR);
+			$stmt->bindParam(":payment_status", $payment_status, PDO::PARAM_STR);
+			$stmt->bindParam(":section", $section, PDO::PARAM_STR);
 			$stmt->execute();
 
 			return true;

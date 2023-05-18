@@ -100,6 +100,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="certificate">
+                        <i class="fas fa-book"></i>
+                        <p>Certificate</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="change_password">
                         <i class="fas fa-cog"></i>
                         <p>Change Password</p>

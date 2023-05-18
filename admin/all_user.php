@@ -62,7 +62,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">All Registered Student</a>
+								<a href="all_user">All Registered Student</a>
 							</li>
 						</ul>
 					</div>

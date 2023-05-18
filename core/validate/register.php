@@ -12,19 +12,27 @@
         $level = $_POST['level'];
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
+        $section = $_POST['section'];
 
         // Form Validation 
         if(empty($matricno) || empty($fullname) || empty($email) || empty($password) || empty($phone) || empty($gender) || empty($program) || empty($level) || empty($password2) || empty($password)){
             $_SESSION['ErrorMessage'] = "All fields are Required";
         }if(strlen($matricno) < 6 || strlen($matricno) > 16) {
-            $_SESSION['ErrorMessage'] =  "Invalid matric or form number.</li>";
+            $_SESSION['ErrorMessage'] =  "Invalid matric or form number";
+        }elseif(strlen($phone) < 11 || strlen($phone) > 11) {
+            $_SESSION['ErrorMessage'] =  "Please Use a Valid Phone No";
         }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['ErrorMessage'] =  "Email Address is Invalid";
+        }elseif(!preg_match("/^[a-z A-Z]*$/", $fullname)){
+            $_SESSION['ErrorMessage'] =  "Fullname Details is Not Valid";
+        }elseif(!preg_match("/^[a-zA-Z\d]*$/", $matricno)){
+            $_SESSION['ErrorMessage'] =  "Invalid matric or form number";
         }elseif(!preg_match("/^[\d]*$/", $phone)){
             $_SESSION['ErrorMessage'] =  "Please Use a Valid Phone No";
         }elseif ($password !== $password2) {
             $_SESSION['ErrorMessage'] =  "Both Password Do Not Match";
         }else{
+
             $matricno = $stu->validateInput($matricno);
             $fullname = $stu->validateInput($fullname);
             $email = $stu->validateInput($email);
@@ -34,6 +42,9 @@
             $level = $stu->validateInput($level);
             $password = $stu->validateInput($password);
             $password2 = $stu->validateInput($password2);
+            $section = $stu->validateInput($section);
+
+            $email = strtolower($email);
 
             // get nacos id
             if(strlen($stu->getLastID()) == 1) {
@@ -77,13 +88,11 @@
                     $_SESSION['ErrorMessage'] =  "Phone Number Already In Use";
                 }else{
                     // Register Student
-                    $stu->register($matricno,$fullname,$email,$phone,$gender,$program,$level,$pass,$image_name,$nacos_id,'Student');
+                    $stu->register($matricno,$fullname,$email,$phone,$gender,$program,$level,$pass,$image_name,$nacos_id,'Student',$section);
 
                     move_uploaded_file($_FILES['stu_image']['tmp_name'], $target); // move image to student_img
                         
                     $_SESSION['matricno'] = $email;
-
-                    #echo $_SESSION['matricno']; exit();
 
                     if(isset($_SESSION['matricno'])){
                         $getStudentDetails = $stu->getStudentData($email);
@@ -97,6 +106,28 @@
                     }             
                 }
             }
+        }
+
+    }elseif(isset($_POST['btn_save_payment']) && !empty($_POST['btn_save_payment'])){
+        // passing data received from user into variable
+        $email = $_POST['email'];
+        $ref_no = $_POST['ref_no'];
+        $amount = $_POST['amount'];
+
+        if(empty($email) || empty($ref_no) || empty($amount)){
+            $_SESSION['ErrorMessage'] = "All fields are Required";
+        }else{
+
+        	$email = $stu->validateInput($email);
+            $ref_no = $stu->validateInput($ref_no);
+            $amount = $stu->validateInput($amount);
+
+            if($stu->manualPayment($email,$ref_no,$amount,"1","2022/2023") === true){
+            	$_SESSION['SuccessMessage'] =  "Payment Added Successfully";
+            }else{
+            	$_SESSION['ErrorMessage'] = "Failed to Add Payment";
+            }
+
         }
 
     }

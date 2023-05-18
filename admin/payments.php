@@ -62,7 +62,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">All Payment</a>
+								<a href="payments">All Payment</a>
 							</li>
 						</ul>
 					</div>

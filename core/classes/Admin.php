@@ -68,31 +68,17 @@
 			return true;
 		}
 
-		public function savePayment($email,$receipt_no,$amount_paid,$payment_status){
-			$stmt = $this->pdo->prepare("INSERT INTO tblpayment (email,receipt_no,amount_paid,payment_status) VALUES(:email,:receipt_no,:amount_paid,:payment_status)");
+		public function savePayment($email,$receipt_no,$amount_paid,$payment_status,$section){
+			$stmt = $this->pdo->prepare("INSERT INTO tblpayment (email,receipt_no,amount_paid,payment_status,section) VALUES(:email,:receipt_no,:amount_paid,:payment_status,:section)");
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 			$stmt->bindParam(":receipt_no", $receipt_no, PDO::PARAM_STR);
 			$stmt->bindParam(":amount_paid", $amount_paid, PDO::PARAM_STR);
 			$stmt->bindParam(":payment_status", $payment_status, PDO::PARAM_STR);
+			$stmt->bindParam(":section", $section, PDO::PARAM_STR);
 			$stmt->execute();
 
 			return true;
 		}
-
-		// public function login($username){
-		// 	$stmt = $this->pdo->prepare("SELECT * FROM tbluser WHERE username = :username");
-		// 	$stmt->bindParam(":username", $username, PDO::PARAM_STR);
-		// 	$stmt->execute();
-
-		// 	$user = $stmt->fetch(PDO::FETCH_OBJ);
-		// 	$count = $stmt->rowCount();
-
-		// 	if($count > 0){
-        //         return $user;
-		// 	}else{
-		// 		return false;
-		// 	}
-		// }
 
 		public function updateProfile($user_id,$fullname,$email,$gender){
 			$stmt = $this->pdo->prepare("UPDATE tblstudent SET fullname=:fullname,email=:email,gender=:gender WHERE id=:id");
@@ -508,14 +494,14 @@
 
 		public function getAllStudent(){
 			$stmt = $this->pdo->prepare("SELECT * FROM tblstudent WHERE usertype = 'Student' ORDER BY matricno ASC");
-			$stmt->bindParam(":username", $username, PDO::PARAM_STR);
+			//$stmt->bindParam(":username", $username, PDO::PARAM_STR);
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
 
 		public function getAllStudentDESC(){
 			$stmt = $this->pdo->prepare("SELECT * FROM tblstudent WHERE usertype = 'Student' ORDER BY id DESC LIMIT 10");
-			$stmt->bindParam(":username", $username, PDO::PARAM_STR);
+			//$stmt->bindParam(":username", $username, PDO::PARAM_STR);
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
@@ -629,7 +615,7 @@
 
 		// this will get student details and join it with the payment details to get payment record of student who paid
 		public function fetchPaymentRecord(){
-			$stmt = $this->pdo->prepare("SELECT s.id, s.matricno, s.fullname, s.email, s.phone, s.gender, s.program, s.level, s.picture, s.nacos_id, p.email, p.receipt_no, p.date_paid, p.payment_status FROM `tblstudent` AS s INNER JOIN `tblpayment` AS p ON p.email = s.email WHERE p.payment_status = '1' ORDER BY p.id ASC");
+			$stmt = $this->pdo->prepare("SELECT s.id, s.matricno, s.fullname, s.email, s.phone, s.gender, s.program, s.level, s.picture, s.nacos_id, p.email, p.receipt_no, p.date_paid, p.payment_status, p.section FROM `tblstudent` AS s INNER JOIN `tblpayment` AS p ON p.email = s.email WHERE p.payment_status = '1' ORDER BY p.id ASC");
 			$stmt->execute();
 
 			return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -650,6 +636,12 @@
 			$stmt->execute();
 
 			return true;
+		}
+
+		public function exportStudentList2(){
+			$stmt = $this->pdo->prepare("SELECT s.id, s.matricno, s.fullname, s.email, s.phone, s.gender, s.program, s.level, s.picture, s.nacos_id, p.email, p.receipt_no, p.date_paid FROM `tblstudent` AS s INNER JOIN `tblpayment` AS p ON p.email = s.email WHERE p.amount_paid = '1500' ORDER BY s.level DESC");
+			$stmt->execute();
+			return $stmt->fetchAll(PDO::FETCH_OBJ);
 		}
 
 		// to check and fetch the student payment details
@@ -705,7 +697,7 @@
    //          $mail->SMTPAuth   = true;
    //          $mail->Host       = 'nacostpi.com';
    //          $mail->Username   = 'contact@nacostpi.com';
-   //          $mail->Password   = '(nacostpilive###)'; 
+   //          $mail->Password   = '()'; 
    //          $mail->From = "contact@nacostpi.com";
    //          $mail->FromName = "NACOS, The Polytechnic Ibadan";
 
@@ -752,6 +744,49 @@
 
         	return "<center><img src='".$file."'></center>";
         }
+
+        public function getGPA($total_score, $unit){
+
+    		if($total_score >= 75){
+    			$point = 4.0 * $unit;
+    		}elseif($total_score >= 70 AND $total_score <= 74){
+    			$point = 3.5 * $unit;
+    		}elseif($total_score >= 65 AND $total_score <= 69){
+    			$point = 3.25 * $unit;
+    		}elseif($total_score >= 60 AND $total_score <= 64){
+    			$point = 3.0 * $unit;
+    		}elseif($total_score >= 55 AND $total_score <= 59){
+    			$point = 2.75 * $unit;
+    		}elseif($total_score >= 50 AND $total_score <= 54){
+    			$point = 2.50 * $unit;
+    		}elseif($total_score >= 45 AND $total_score <= 49){
+    			$point = 2.25 * $unit;
+    		}elseif($total_score >= 40 AND $total_score <= 44){
+    			$point = 2.00 * $unit;
+    		}elseif($total_score <= 39){
+    			$point = 0 * $unit;
+    		}
+
+    		return $point;
+    	}
+
+    	public function getGrade($totalUnit){
+
+    		if($totalUnit >= 3.50){
+    			$point = "DISTINCTION";
+    		}elseif($totalUnit >= 3.00 AND $totalUnit <= 3.49){
+    			$point = "UPPER CREDIT";
+    		}elseif($totalUnit >= 2.50 AND $totalUnit <= 2.99){
+    			$point = "LOWER CREDIT";
+    		}elseif($totalUnit >= 2.00 AND $totalUnit <= 2.49){
+    			$point = "PASS";
+    		}else{
+    			$point = "WITHDRAW";
+    		}
+
+    		return $point;
+    	}
+
 	}
 
 ?>

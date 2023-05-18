@@ -1,0 +1,202 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+.container{
+    border: none;
+    padding: 30px;
+    width: 1300px;
+    position: relative;
+}  
+.container:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url(img/nacos.png);
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
+    background-size: 40%;
+}
+ 
+.green{
+    border: 20px solid #008846;
+}
+.red{
+    border: 3px solid #ccc;
+    padding: 20px;
+    opacity: 1;
+}
+.green2{
+    border: 3px solid #008846;
+    padding: 50px 10px 50px 50px;
+    position: relative;
+    line-height: 20px;
+}
+.main h2{
+    font-family: "Segoe UI", Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 68px;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+.ofwhat{
+    color: #008846;
+    font-size: 21px;
+    text-align: center;
+    font-weight: bolder;
+}
+.presented{
+    padding: 20px 0;
+    font-weight: bolder;
+    font-size: 40px;
+    margin: 120px 0 50px 0;
+}
+.name{
+    border-bottom:3px solid #008846;
+    padding-bottom: 3px;
+    width: 70%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+}
+span{
+    font-weight: bolder;
+}
+.text-direction{
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    position: absolute;
+    right: 1%;
+    font-size: 17px;
+    width: 100;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7E5438;
+}
+.mainparagraph{
+    margin: 10px 0 0 0;
+    line-height: 30px;
+    font-size: 16px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 250px;
+    width: 95%;
+}
+.date span{
+    color: #008846;
+}
+.date{
+    font-size: 16px;
+    font-weight: bolder;
+}
+.signature div{
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+.signature{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+img{
+    width: 30%;
+}
+.image2{
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    transform: translate(06%,-50%);
+    width: 28%;
+}
+.image1{
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    width: 28%;
+    transform: translate(-180%,-45%);
+}
+.signatureimage{
+    position: absolute;
+    width: 10%;
+    transform: translate(-50%,-100%);
+}
+.green-box1{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-right: 3px solid #008846;
+    border-bottom: 3px solid #008846;
+    top: 0;
+    left: 0;
+}
+.green-box2{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-bottom: 3px solid #008846;
+    border-left: 3px solid #008846;
+    top: 0;
+    right: 0;
+}
+.green-box3{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid #008846;
+    border-right: 3px solid #008846;
+    bottom: 0;
+    left: 0;
+}
+.green-box4{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid #008846;
+    border-left: 3px solid #008846;
+    bottom: 0;
+    right: 0;
+}
+.btn{
+        display:inline-block;
+        font-weight:400;
+        text-align:center;
+        white-space:nowrap;
+        vertical-align:middle;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        border:1px solid transparent;
+        padding:.375rem .75rem;
+        font-size:1rem;
+        line-height:1.5;
+        border-radius:.25rem;
+        transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .btn-primary{
+        color:#fff;
+        background-color:#007bff;
+        border-color:#007bff
+        }
+    .btn-primary:hover{
+        color:#fff;
+        background-color:#0069d9;
+        border-color:#0062cc;
+        cursor: pointer;
+    }
+    @media print {
+          .btn-print {
+            display:none !important;
+        }

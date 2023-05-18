@@ -62,7 +62,7 @@
                                 <i class="flaticon-right-arrow"></i>
                             </li>
                             <li class="nav-item">
-                                <a href="change_password.php">Change Password</a>
+                                <a href="change_password">Change Password</a>
                             </li>
                         </ul>
                     </div>

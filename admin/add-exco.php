@@ -63,7 +63,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">Manage Excos</a>
+								<a href="add-exco">Manage Excos</a>
 							</li>
 						</ul>
 					</div>

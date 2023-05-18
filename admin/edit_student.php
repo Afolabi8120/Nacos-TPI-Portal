@@ -60,7 +60,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Profile</h4>
+						<h4 class="page-title">Edit Profile</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="dashboard">
@@ -71,7 +71,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile">Profile</a>
+								<a href="#">Edit Profile</a>
 							</li>
 						</ul>
 					</div>

@@ -65,7 +65,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="profile.php">Time Table</a>
+								<a href="time_table">Time Table</a>
 							</li>
 						</ul>
 					</div>

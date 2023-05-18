@@ -7,6 +7,6 @@
 	}
 	$html.='</table>';
 	header('Content-Type:application/xls');
-	header('Content-Disposition:attachment;filename=student-list.xls');
+	header('Content-Disposition:attachment;filename=all-student.xls');
 	echo $html;
 ?>

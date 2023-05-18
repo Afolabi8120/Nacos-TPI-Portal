@@ -48,7 +48,7 @@
                                     <div class="form-group">
                                         <label for="username">Gender</label>
                                         <select name="gender" class="form-control" required>
-                                            <option disabled selected>Select Gender</option>
+                                            <option disabled selected value="">Select Gender</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label for="username">Program</label>
                                         <select name="program" class="form-control" required>
-                                            <option disabled selected>Select Program</option>
+                                            <option disabled selected value="">Select Program</option>
                                             <option value="FT">FT</option>
                                             <option value="PT">PT</option>
                                             <option value="DPP">DPP</option>
@@ -65,7 +65,7 @@
                                     <div class="form-group">
                                         <label for="username">Level</label>
                                         <select name="level" class="form-control" required>
-                                            <option disabled selected>Select Level</option>
+                                            <option disabled selected value="">Select Level</option>
                                             <option value="ND I">ND I</option>
                                             <option value="ND II">ND II</option>
                                             <option value="ND III">ND III</option>
@@ -75,6 +75,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
+                                        <input name="section" type="hidden" class="form-control" value="2022/2023" readonly required>
                                         <input name="password" type="password" class="form-control" placeholder="Password" required>
                                     </div>
                                     <div class="form-group">
