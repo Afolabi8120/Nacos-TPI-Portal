@@ -4,6 +4,14 @@
 
     include_once('../core/init.php');
 
+    if(isset($_SESSION['matricno']) AND !empty($_SESSION['matricno'])){
+        if($_SESSION['session_id'] !== $getSession->session){
+            header('location: ../auth/login');
+        }    
+    }
+    else{
+        header('location: ../auth/login');
+    }
 
     #session_start();
     $getStudent = $stu->getStudentData($_SESSION['matricno']);
@@ -23,7 +31,7 @@
         if($admin->savePayment($email,$ref,'1000','1','2022/2023') === true){
           echo "<script>alert('Payment Successful')</script>";
         }
-          header('location: print-receipt');
+          header('location: payment_complete');
       }
       
     }

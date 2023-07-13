@@ -46,7 +46,7 @@
 		$(document).on('click', '.paydues', function(e) {
 			e.preventDefault();
 
-			var amount = $('.duemoney').val();
+			var amount = 1080;
 			var type = $(this).data('type');
 			var email = $('.usermail').val();
 
