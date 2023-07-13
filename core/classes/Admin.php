@@ -41,7 +41,7 @@
         }
 
         public function checkUsername($username){
-        	$stmt = $this->pdo->prepare("SELECT username FROM tblstudent WHERE username = :username");
+        	$stmt = $this->pdo->prepare("SELECT matricno FROM tblstudent WHERE matricno = :username");
         	$stmt->bindParam(":username", $username, PDO::PARAM_STR);
         	$stmt->execute();
 
@@ -55,8 +55,8 @@
         }
 
 		public function registerAdmin($username,$fullname,$email,$gender,$password,$usertype,$picture){
-			$stmt = $this->pdo->prepare("INSERT INTO tblstudent (matricno,fullname,email,gender,password,usertype,status,picture) VALUES(:username,:fullname,:email,:gender,:password,:usertype,'Active',:picture)");
-			$stmt->bindParam(":username", $username, PDO::PARAM_STR);
+			$stmt = $this->pdo->prepare("INSERT INTO tblstudent (matricno,fullname,email,gender,password,usertype,status,picture) VALUES(:matricno,:fullname,:email,:gender,:password,:usertype,'Active',:picture)");
+			$stmt->bindParam(":matricno", $matricno, PDO::PARAM_STR);
 			$stmt->bindParam(":fullname", $fullname, PDO::PARAM_STR);
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 			$stmt->bindParam(":gender", $gender, PDO::PARAM_STR);

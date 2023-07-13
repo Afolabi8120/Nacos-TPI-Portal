@@ -11,7 +11,7 @@
 	    $image = imagecreatefrompng("../assets/certificate/cert.png");
 	    $color = imagecolorallocate($image, 19, 21, 22);
 	    $date = date('d F, Y');
-	    imagettftext($image, 50, 0, 680, 2015, $color, $font, $date);
+	    imagettftext($image, 50, 0, 1500, 2170, $color, $font, $date);
 	    $name = ucwords($getStudent->fullname);
 	    imagettftext($image, 100, 0, 450, 1120, $color, $font, $name);
 	    $nacos_id = $getStudent->nacos_id;
